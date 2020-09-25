@@ -1,6 +1,6 @@
 import numpy as np
-from functions import *
-from gradient import numerical_gradient
+from common.functions import *
+from common.gradient import numerical_gradient
 
 
 class TwoLayerNet:
