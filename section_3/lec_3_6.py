@@ -1,5 +1,8 @@
 import numpy as np
-from mnist import load_mnist
+import sys, os
+sys.path.append(os.pardir)
+
+from common.mnist import load_mnist
 from PIL import Image
 import pickle
 import time

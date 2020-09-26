@@ -3,8 +3,8 @@ sys.path.append(os.pardir)
 
 import numpy as np
 import matplotlib.pyplot as plt
-from mnist import load_mnist
 from lec_4_5_net import TwoLayerNet
+from common.mnist import load_mnist
 
 # データの読み込み
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, one_hot_label=True)

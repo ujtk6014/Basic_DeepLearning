@@ -1,5 +1,7 @@
 # coding: utf-8
-from mnist import load_mnist
+import sys, os
+sys.path.append(os.pardir)
+from common.mnist import load_mnist
 import numpy as np
 import matplotlib.pyplot as plt
 from two_layer_net import TwoLayerNet
@@ -41,6 +43,44 @@ for i in range(iters_num):
         test_acc_list.append(test_acc)
         print("train acc, test acc | " + str(train_acc) + ", " + str(test_acc))
 
+
+#グラフの描画 1
+fig = plt.figure("loss history")
+#ax1 = fig.add_subplot(2,1,1)
+#ax2 = fig.add_subplot(2,1,2)
+
+x = np.arange(len(train_loss_list))
+# ax1.plot(x, train_loss_list, label='train loss')
+# ax1.set_xlabel("iteration")
+# ax1.set_ylabel("loss")
+# ax1.set_xlim(0,iters_num)
+# ax1.set_ylim(0, 5.0)
+# ax1.legend(loc = 'upper right')
+plt.subplot(2,1,1)
+plt.plot(x, train_loss_list, label='train loss')
+plt.xlim(0,iters_num)
+plt.ylim(0,4)
+plt.legend(loc = 'upper right')
+
+# ax2.plot(x, train_loss_list, label='train loss')
+# ax2.set_xlabel("iteration")
+# ax2.set_ylabel("loss")
+# ax2.set_xlim(0,1000)
+# ax2.set_ylim(0, 5.0)
+# ax2.legend(loc = 'upper right')
+plt.subplot(2,1,2)
+plt.plot(x, train_loss_list, label='train loss')
+plt.xlabel("iteration")
+plt.ylabel("loss")
+plt.xlim(0,1000)
+plt.ylim(0, 5.0)
+plt.legend(loc = 'upper right')
+fig.tight_layout()
+#plt.legend(loc='lower right')
+#plt.show()
+
+
+fig2 = plt.figure("accuracy")
 x = np.arange(len(train_acc_list))
 plt.plot(x, train_acc_list, label='train acc')
 plt.plot(x, test_acc_list, label='test acc', linestyle='--')
